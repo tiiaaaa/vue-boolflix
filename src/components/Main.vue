@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CardProduct from './components/CardProduct.vue';
+import CardProduct from './CardProduct.vue';
 
 export default {
     name: 'MainFlix',

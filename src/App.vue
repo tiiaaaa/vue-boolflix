@@ -26,3 +26,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 </style>
+
+// ! Chiave API
+//! 77f91f2f71f3f870afab1c37d553c29a
