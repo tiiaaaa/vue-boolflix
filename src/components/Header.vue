@@ -16,6 +16,11 @@
 <script>
 export default {
     name: 'HeaderFlix',
+    data: function(){
+        return{
+            
+        }
+    }
 
 }
 </script>
