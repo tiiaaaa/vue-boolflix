@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-      <Header/>
+      <Header @newSearch="updateMovieSearch"/>
 
-      <Main/>
+      <Main :movies='movies'/>
   </div>
 </template>
 
@@ -18,13 +18,27 @@ export default {
     Main
   },
 
+  data: function(){
+      return {
+          movies: [],
+          // apiURL: 'https://api.themoviedb.org/3/search/movie?api_key=77f91f2f71f3f870afab1c37d553c29a&query=',
+          movieSearch: '', 
+      }
+    },
+
   methods : {
-      getApiLIst(){
+      updateMovieSearch(stringToSearch){
+        this.movieSearch = stringToSearch;
+        console.warn(this.movieSearch);
+        this.getApiMovies;
+      },
+
+      getApiMovies(){
             axios
-            .get('https://api.themoviedb.org/3/search/movie?api_key=77f91f2f71f3f870afab1c37d553c29a&query=`${}`')
-            .then((result) => {
-                this.albumList = result.data.response
-                console.table(this.albumList);
+            .get('https://api.themoviedb.org/3/search/movie?api_key=77f91f2f71f3f870afab1c37d553c29a&query=`${movieSearch}`')
+            .then((response) => {
+                this.movies = response.data.results;
+                console.table(this.movies);
             })
             .catch((error) => {
                 console.log(error)

@@ -11,7 +11,17 @@ export default {
     name: 'MainFlix',
     components:{
         CardProduct,
-    }
+    },
+
+    data : function(){
+        return {
+            
+        }
+    },
+
+    props: {
+        movies : Array,
+    },
 
 }
 </script>

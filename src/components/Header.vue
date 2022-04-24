@@ -6,8 +6,8 @@
             </div>
 
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search movie.." aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-secondary" type="button" id="button-addon2">Search</button>
+                <input type="text" class="form-control" placeholder="Search movie.." v-model="stringToSearch">
+                <button class="btn btn-secondary" type="button" id="button-addon2" @click="$emit('newSearch', stringToSearch)">Search</button>
             </div>
         </nav>
     </header>
@@ -18,7 +18,7 @@ export default {
     name: 'HeaderFlix',
     data: function(){
         return{
-            
+            stringToSearch: '',
         }
     }
 
