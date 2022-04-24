@@ -73,6 +73,7 @@ export default {
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  background-color: rgb(88, 75, 75);
 }
 </style>
 
