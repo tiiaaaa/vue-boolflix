@@ -70,9 +70,10 @@ export default {
 
 <style lang="scss">
 @import './assets/style/style.scss';
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Oswald', sans-serif;
   background-color: rgb(88, 75, 75);
 }
 </style>

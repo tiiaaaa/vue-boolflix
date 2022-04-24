@@ -1,5 +1,5 @@
 <template>
-    <div class="card col-12 col-md-6 col-lg-3 mb-4 py-3">
+    <div class="card col-12 col-md-6 col-lg-3 mb-5 py-3 border border-3">
         <img :src="`https://image.tmdb.org/t/p/w342${element.poster_path}`" class="card-img-top img-fluid" alt="">
         <div class="card-body">
             <h2 class="card-title">{{getTitle()}}</h2>
