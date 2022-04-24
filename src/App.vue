@@ -2,7 +2,7 @@
   <div id="app">
       <Header @newSearch="updateMovieSearch"/>
 
-      <Main :movies='movies'/>
+      <Main :moviesAndSeries='moviesAndSeries'/>
   </div>
 </template>
 
@@ -21,29 +21,49 @@ export default {
   data: function(){
       return {
           movies: [],
-          apiURL: 'https://api.themoviedb.org/3/search/movie?api_key=77f91f2f71f3f870afab1c37d553c29a&query=',
-          movieSearch: '', 
+          series: [],
+          moviesAndSeries: [],
+          apiURL: 'https://api.themoviedb.org/3/search/',
+          apiKey: '?api_key=77f91f2f71f3f870afab1c37d553c29a&query=',
+          movieSearch: '' 
       }
     },
 
   methods : {
       updateMovieSearch(stringToSearch){
         this.movieSearch = stringToSearch;
-        console.warn(this.movieSearch);
+        // console.warn(this.movieSearch);
         this.getApiMovies();
+        this.getApiSeries();
       },
-
+      
+      // Chiamata API x le i film
       getApiMovies(){
             axios
-            .get(this.apiURL + this.movieSearch)
+            .get(this.apiURL + 'movie' + this.apiKey + this.movieSearch)
             .then((response) => {
                 this.movies = response.data.results;
-                console.table(this.movies);
+                this.moviesAndSeries = [...this.movies, this.series];
+                console.table(this.moviesAndSeries);
             })
             .catch((error) => {
                 console.log(error)
             })
-        }
+        },
+      
+      // Chiamata API x le serie TV
+      getApiSeries(){
+            axios
+            .get(this.apiURL + 'tv' + this.apiKey + this.movieSearch)
+            .then((response) => {
+                this.series = response.data.results;
+                this.moviesAndSeries = [...this.movies, this.series];
+                console.table(this.moviesAndSeries);
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+        }  
   }
 }
 </script>

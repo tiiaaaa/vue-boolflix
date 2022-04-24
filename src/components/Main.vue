@@ -2,7 +2,7 @@
     <main>
         <div class="container">
             <section class="row p-5">
-                <CardProduct v-for="(movie, index) in movies" :key="index" :movie ="movie"/>
+                <CardProduct v-for="(element, index) in moviesAndSeries" :key="index" :element ="element"/>
             </section>
         </div>
     </main>
@@ -24,7 +24,7 @@ export default {
     },
 
     props: {
-        movies : Array,
+        moviesAndSeries : Array,
     },
 
 }
