@@ -21,7 +21,7 @@ export default {
   data: function(){
       return {
           movies: [],
-          // apiURL: 'https://api.themoviedb.org/3/search/movie?api_key=77f91f2f71f3f870afab1c37d553c29a&query=',
+          apiURL: 'https://api.themoviedb.org/3/search/movie?api_key=77f91f2f71f3f870afab1c37d553c29a&query=',
           movieSearch: '', 
       }
     },
@@ -30,12 +30,12 @@ export default {
       updateMovieSearch(stringToSearch){
         this.movieSearch = stringToSearch;
         console.warn(this.movieSearch);
-        this.getApiMovies;
+        this.getApiMovies();
       },
 
       getApiMovies(){
             axios
-            .get('https://api.themoviedb.org/3/search/movie?api_key=77f91f2f71f3f870afab1c37d553c29a&query=`${movieSearch}`')
+            .get(this.apiURL + this.movieSearch)
             .then((response) => {
                 this.movies = response.data.results;
                 console.table(this.movies);
