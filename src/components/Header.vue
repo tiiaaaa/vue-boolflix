@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header class="mb-5">
         <nav class="d-flex justify-content-between align-items-center p-3">
             <div>
                 <h1 class="text-danger mb-0">Boolflix</h1>
@@ -26,6 +26,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+    
     div.input-group{
         width: 30%;
     }

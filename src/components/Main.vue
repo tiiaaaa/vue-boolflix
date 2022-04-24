@@ -1,6 +1,10 @@
 <template>
     <main>
-        <CardProduct/>
+        <div class="container">
+            <section class="row p-5">
+                <CardProduct v-for="(movie, index) in movies" :key="index" :movie ="movie"/>
+            </section>
+        </div>
     </main>
 </template>
 
